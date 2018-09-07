@@ -17,6 +17,7 @@ public class Route {
   private Point[] zwischenpunkte;
   private float frachtgewicht;
   private float frachtvolumen;
+  private Point isConnected;
   // Ende Attribute
   
   public Route(Point startpunkt, Point zielpunkt, float frachtgewicht, float frachtvolumen) {
@@ -68,5 +69,15 @@ public class Route {
     + " Gewicht/Volumen: " +this.frachtgewicht + "/" + this.frachtvolumen;
   }
   
+  public boolean isConnected(Point point) {
+    if (startpunkt == point) {
+      return true;
+    }
+    else if(zielpunkt == point) {
+      
+    } // end of if-else
+      return false;
+  }
+
   // Ende Methoden
 } // end of Route
