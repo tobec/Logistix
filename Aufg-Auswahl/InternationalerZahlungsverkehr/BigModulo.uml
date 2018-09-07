@@ -1,0 +1,25 @@
+[Files]
+File0=BigModulo.class
+
+[Box:  - BigModulo]
+X=20
+Y=40
+MinVis=0
+
+[Diagram]
+OffsetX=0
+OffsetY=0
+ShowAssoc=1
+Visibility=0
+ShowParameter=0
+SortOrder=0
+ShowIcons=0
+Fontname=MS Sans Serif
+Fontsize=10
+
+[Window]
+Left=0
+Top=0
+Width=700
+Height=182
+

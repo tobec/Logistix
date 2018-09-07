@@ -1,0 +1,19 @@
+ID	Bezeichnung	Dauer	Vorgänger	Nachfolger
+1	Start   	0	-	2
+2	Konfiguration klären	1	1	3;5
+3	Konfiguration wählen	3	2	4
+4	Inbetriebnahme u. Kostenreduktion	4	3	6
+5	Arbeitskräfte organisieren	1	2	6
+6	Materialbeschaffung	2	4;5	7;8
+7	Montage vorbereiten	1	6	9
+8	Festplatte spiegeln 1.Charge	1	6	9;11
+9	Montage 1.Charge	2	7;8	10;12
+10	Verpacken 1.Charge	1	9	17
+11	Festplatte spiegeln 2.Charge	1	8	12;14
+12	Montage 2.Charge	2	9;11	13;15
+13	Verpacken 2.Charge	1	12	17
+14	Festplatte spiegeln 3.Charge	8	11	15
+15	Montage 3.Charge	16	12;14	16
+16	Verpacken 3.Charge	8	15	17
+17	Auslieferung	2	10;13;16	18
+18	Ende	0	17	-
