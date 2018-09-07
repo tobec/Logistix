@@ -71,6 +71,22 @@ public class Route {
     return false;
   }
   
+  public boolean isConnected(Point point) {
+    if (this.startpunkt == point) {
+      return true;
+    }
+    if (this.zielpunkt == point) {
+      return true;
+    } // end of if-else
+    for (int i = 0;i<this.zwischenpunkte.length;i++ ) {
+      if (this.zwischenpunkte[i] == point) {
+        return true;
+      } // end of if 
+    } // end of for
+    return false;
+  }
+  
+  
   public String toString(){
     String zp ="[";
     for (int i = 0;i < this.zwischenpunkte.length ;i++ ) {
