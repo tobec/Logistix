@@ -53,6 +53,24 @@ public class Route {
     this.zwischenpunkte = zwischenpunkte;
   }
   
+  public boolean existAsDirectLink(Point point1, Point point2){
+    Point [] route = new Point [this.zwischenpunkte.length + 2];
+    
+    route [0] = this.startpunkt;
+    for (int i = 1;i < route.length - 1 ; i++ ) {
+      route[i] = this.zwischenpunkte[i-1];
+    } // end of for
+    route [route.length - 1] = this.zielpunkt;
+    int index1 = Arrays.asList(route).indexOf(point1);
+    int index2 = Arrays.asList(route).indexOf(point2);
+    
+    if (index2 - 1 == index1 || index2 + 1 == index1) {
+      return true;
+    }
+    
+    return false;
+  }
+  
   public String toString(){
     String zp ="[";
     for (int i = 0;i < this.zwischenpunkte.length ;i++ ) {
