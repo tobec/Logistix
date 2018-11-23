@@ -17,7 +17,6 @@ public class Route {
   private Point[] zwischenpunkte;
   private float frachtgewicht;
   private float frachtvolumen;
-  private Point isConnected;
   // Ende Attribute
   
   public Route(Point startpunkt, Point zielpunkt, float frachtgewicht, float frachtvolumen) {
@@ -53,8 +52,7 @@ public class Route {
   public void setZwischenpunkte(Point[] zwischenpunkte) {
     this.zwischenpunkte = zwischenpunkte;
   }
-  
-  public boolean existAsDirectLink(Point point1, Point point2){
+  private Point[] getCompleteRoute(){
     Point [] route = new Point [this.zwischenpunkte.length + 2];
     
     route [0] = this.startpunkt;
@@ -62,6 +60,12 @@ public class Route {
       route[i] = this.zwischenpunkte[i-1];
     } // end of for
     route [route.length - 1] = this.zielpunkt;
+    
+    return route
+    }
+  public boolean existAsDirectLink(Point point1, Point point2){
+    
+    Point[] route = this.getCompleteRoute();
     int index1 = Arrays.asList(route).indexOf(point1);
     int index2 = Arrays.asList(route).indexOf(point2);
     
@@ -71,6 +75,32 @@ public class Route {
     
     return false;
   }
+  public boolean existAsLink (Point point1,Point point2){
+    Point[] route = this.getCompleteRoute();
+    if () {
+      
+    } // end of if
+  if (this.existAsDirectLink() == true || indirectLink == true ) {
+      return true;
+  } // end of if
+    return false;
+    }
+  
+  public boolean isConnected(Point point) {
+    if (this.startpunkt == point) {
+      return true;
+    }
+    if (this.zielpunkt == point) {
+      return true;
+    } // end of if-else
+    for (int i = 0;i<this.zwischenpunkte.length;i++ ) {
+      if (this.zwischenpunkte[i] == point) {
+        return true;
+      } // end of if 
+    } // end of for
+    return false;
+  }
+  
   
   public String toString(){
     String zp ="[";
@@ -87,20 +117,5 @@ public class Route {
     + " Gewicht/Volumen: " +this.frachtgewicht + "/" + this.frachtvolumen;
   }
   
-  public boolean isConnected(Point point) {
-    if (this.startpunkt == point) {
-      return true;
-    }
-    if (this.zielpunkt == point) {
-      return true;
-    } // end of if-else
-    for (int i = 0;i<this.zwischenpunkte.length;i++ ) {
-      if (this.zwischenpunkte[i] == point) {
-        return true;
-      } // end of if 
-    } // end of for
-      return false;
-  }
-
   // Ende Methoden
 } // end of Route

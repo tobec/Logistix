@@ -52,8 +52,7 @@ public class Route {
   public void setZwischenpunkte(Point[] zwischenpunkte) {
     this.zwischenpunkte = zwischenpunkte;
   }
-  
-  public boolean existAsDirectLink(Point point1, Point point2){
+  private Point[] getCompleteRoute(){
     Point [] route = new Point [this.zwischenpunkte.length + 2];
     
     route [0] = this.startpunkt;
@@ -61,6 +60,12 @@ public class Route {
       route[i] = this.zwischenpunkte[i-1];
     } // end of for
     route [route.length - 1] = this.zielpunkt;
+    
+    return route
+    }
+  public boolean existAsDirectLink(Point point1, Point point2){
+    
+    Point[] route = this.getCompleteRoute();
     int index1 = Arrays.asList(route).indexOf(point1);
     int index2 = Arrays.asList(route).indexOf(point2);
     
@@ -70,6 +75,16 @@ public class Route {
     
     return false;
   }
+  public boolean existAsLink (Point point1,Point point2){
+    Point[] route = this.getCompleteRoute();
+    if (Arrays.asList(route).indexOf(point1) != false && Arrays.asList(route).imdexOf(point2) != false) {
+      
+    } // end of if
+  if (this.existAsDirectLink() == true || indirectLink == true ) {
+      return true;
+  } // end of if
+    return false;
+    }
   
   public boolean isConnected(Point point) {
     if (this.startpunkt == point) {
