@@ -7,7 +7,7 @@
   */
 
 public class Point {
-  
+   //HALLO
   // Anfang Attribute
   private String name;
   private String shortname;
