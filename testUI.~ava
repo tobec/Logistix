@@ -21,6 +21,7 @@ public class testUI {
     r1Zwischen[1]  =p4;
     
     r1.setZwischenpunkte(r1Zwischen);
+    System.out.println(r1.existAsDirectLink(p1,p2));
     
     System.out.println(r1);
   } // end of main
